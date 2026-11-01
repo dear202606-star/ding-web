@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>定狗术民俗研究报告</title>
+<style>
+  :root{
+    --paper:#f4eee0;
+    --panel:#fdfaf1;
+    --ink:#231d14;
+    --ink-soft:#4a4132;
+    --muted:#8a7d65;
+    --line:#d9ccae;
+    --red:#9e2f22;
+    --red-deep:#7a2318;
+    --gold:#b08d4f;
+    --indigo:#2f4a5c;
+    --indigo-bg:#eaf0f4;
+    --green:#3d6b4f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    background-image:
+      radial-gradient(rgba(120,100,60,.05) 1px, transparent 1px),
+      radial-gradient(rgba(120,100,60,.04) 1px, transparent 1px);
+    background-size:30px 30px,30px 30px;
+    background-position:0 0,15px 15px;
+    color:var(--ink);
+    font-family:"Noto Serif SC","Songti SC","STSong","SimSun","Source Han Serif SC",serif;
+    font-size:16px;line-height:1.9;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px 80px}
+
+  /* ===== 头部 ===== */
+  .hero{
+    margin:44px auto 0;max-width:1080px;padding:58px 40px 44px;
+    text-align:center;position:relative;
+    border:1px solid var(--line);
+    background:linear-gradient(180deg,#faf5e8,#f4eee0);
+    box-shadow:inset 0 0 0 6px var(--paper), inset 0 0 0 7px var(--line);
+  }
+  .hero .corner{position:absolute;width:22px;height:22px;border:2px solid var(--gold)}
+  .hero .c1{top:16px;left:16px;border-right:none;border-bottom:none}
+  .hero .c2{top:16px;right:16px;border-left:none;border-bottom:none}
+  .hero .c3{bottom:16px;left:16px;border-right:none;border-top:none}
+  .hero .c4{bottom:16px;right:16px;border-left:none;border-top:none}
+  .hero .kicker{
+    display:inline-block;font-size:12.5px;letter-spacing:.5em;color:var(--muted);
+    border:1px solid var(--line);padding:5px 16px 5px 22px;background:var(--panel);
+    margin-bottom:24px;
+  }
+  .hero h1{font-size:48px;font-weight:700;letter-spacing:.14em;color:var(--ink)}
+  .hero h1 em{font-style:normal;color:var(--red)}
+  .hero .sub{margin-top:16px;font-size:16px;letter-spacing:.1em;color:var(--ink-soft)}
+  .hero .meta{margin-top:22px;font-size:12.5px;letter-spacing:.18em;color:var(--muted)}
+  .seal{
+    position:absolute;right:56px;top:52px;
+    background:var(--red);color:#fbf3e2;
+    writing-mode:vertical-rl;font-size:15px;font-weight:700;letter-spacing:.2em;
+    padding:12px 9px;border-radius:3px;box-shadow:inset 0 0 0 2px rgba(251,243,226,.4);
+  }
+  @media(max-width:760px){.seal{position:static;display:inline-block;writing-mode:horizontal-tb;margin-top:18px}}
+
+  /* ===== 导航 ===== */
+  nav{position:sticky;top:0;z-index:50;background:rgba(244,238,224,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  nav .wrap{padding:0 26px;display:flex;flex-wrap:wrap;justify-content:center;gap:0 20px}
+  nav a{color:var(--ink-soft);text-decoration:none;font-size:14px;padding:12px 4px;border-bottom:2px solid transparent;letter-spacing:.04em}
+  nav a:hover{color:var(--red);border-bottom-color:var(--red)}
+
+  /* ===== 章节 ===== */
+  section{margin-top:58px}
+  .sec-head{display:flex;align-items:center;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:24px}
+  .sec-no{
+    flex:none;width:40px;height:40px;display:flex;align-items:center;justify-content:center;
+    background:var(--red);color:#fbf3e2;font-size:19px;font-weight:700;border-radius:3px;
+  }
+  .sec-head h2{font-size:26px;letter-spacing:.08em}
+  .sec-head .en{margin-left:auto;font-size:11.5px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase}
+  h3{font-size:19px;margin:30px 0 12px;padding-left:12px;border-left:4px solid var(--red);letter-spacing:.04em}
+  h4{font-size:16px;margin:18px 0 8px;color:var(--red-deep)}
+  p{margin:10px 0;color:var(--ink-soft)}
+  .lead{font-size:17px;color:var(--ink)}
+  strong{color:var(--ink)}
+  .hl{color:var(--red);font-weight:700}
+  .small{font-size:13px;color:var(--muted)}
+
+  /* ===== 卡片 ===== */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0}
+  @media(max-width:860px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--red);padding:18px 20px;border-radius:3px}
+  .card.sci{border-top-color:var(--indigo)}
+  .card .tag{font-size:11.5px;letter-spacing:.26em;color:var(--muted);margin-bottom:6px}
+  .card h5{font-size:16.5px;margin-bottom:6px}
+  .card p{font-size:14px;margin:4px 0;line-height:1.8}
+
+  /* ===== 咒语卷轴 ===== */
+  .scroll{
+    background:linear-gradient(180deg,#faf2dc,#f4ead0);
+    border:1px solid var(--line);border-left:5px solid var(--red);
+    padding:20px 26px;margin:16px 0;border-radius:2px;position:relative;
+  }
+  .scroll .label{font-size:12px;letter-spacing:.3em;color:var(--red-deep);font-weight:700;margin-bottom:10px}
+  .scroll .incantation{font-size:18px;line-height:2.1;font-weight:600;color:var(--ink);letter-spacing:.02em}
+  .scroll .note{margin-top:10px;font-size:12.5px;color:var(--muted)}
+  .spell-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:820px){.spell-grid{grid-template-columns:1fr}}
+  .spell-grid .scroll{margin:0}
+  .spell-grid .scroll .incantation{font-size:15.5px;line-height:2}
+
+  /* ===== 表格 ===== */
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);background:var(--panel)}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:11px 13px;border-bottom:1px solid #e8dec6;text-align:left;vertical-align:top}
+  th{background:#efe5cd;font-weight:700;letter-spacing:.04em;white-space:nowrap}
+  tr:nth-child(even) td{background:#faf6ea}
+  td:first-child{font-weight:700;color:var(--red-deep);white-space:nowrap}
+  .big-table{font-size:13px;min-width:1020px}
+  .big-table td:first-child{white-space:normal}
+
+  /* ===== 图版 ===== */
+  figure{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:24px 20px 16px;margin:18px 0;text-align:center}
+  figure svg{max-width:100%;height:auto}
+  figcaption{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.7}
+  figcaption b{color:var(--red-deep)}
+  .fig-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:820px){.fig-grid{grid-template-columns:1fr}}
+  .fig-grid figure{margin:0}
+
+  /* ===== 步骤 ===== */
+  .steps{counter-reset:step;margin:14px 0}
+  .steps li{list-style:none;counter-increment:step;position:relative;padding:9px 0 9px 50px;border-bottom:1px dashed var(--line);color:var(--ink-soft)}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{
+    content:counter(step);position:absolute;left:2px;top:11px;width:30px;height:30px;border-radius:50%;
+    background:var(--red);color:#fbf3e2;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;
+  }
+  .steps li b{color:var(--ink)}
+
+  /* ===== 时间轴 ===== */
+  .timeline{margin:20px 0;position:relative;padding-left:24px}
+  .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .tl-item{position:relative;padding:0 0 16px 20px}
+  .tl-item::before{content:"";position:absolute;left:-24px;top:9px;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--red)}
+  .tl-item .era{font-size:12.5px;color:var(--red);font-weight:700;letter-spacing:.08em}
+  .tl-item h5{display:inline;font-size:15.5px;color:var(--ink)}
+  .tl-item p{display:inline;font-size:14px;margin-left:8px}
+
+  /* ===== 证据区 ===== */
+  .evidence{background:var(--indigo-bg);border:1px solid #c6d4dc;border-left:5px solid var(--indigo);padding:16px 22px;margin:16px 0;border-radius:2px}
+  .evidence .label{font-size:12px;color:var(--indigo);letter-spacing:.24em;font-weight:700;margin-bottom:6px}
+  .evidence p{color:#33454f;font-size:14.5px}
+  .verdict{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:.06em;margin-right:4px}
+  .v-yes{background:#e2efe6;color:var(--green);border:1px solid #b7d3c1}
+  .v-no{background:#f6e3e0;color:var(--red-deep);border:1px solid #e0b8b1}
+  .v-part{background:#f3ecd8;color:#8a6a20;border:1px solid #ddcb9c}
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+  @media(max-width:760px){.stat-row{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--panel);border:1px solid var(--line);padding:16px 8px;text-align:center;border-radius:3px}
+  .stat .num{font-size:28px;font-weight:700;color:var(--indigo);line-height:1.2}
+  .stat .cap{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6}
+
+  footer{margin-top:64px;border-top:3px double var(--line);padding-top:24px;font-size:12.5px;color:var(--muted)}
+  footer h6{font-size:13.5px;color:var(--ink-soft);margin-bottom:8px;letter-spacing:.12em}
+  footer ol{margin-left:18px}
+  footer li{margin:4px 0;line-height:1.7}
+  .disclaimer{margin-top:16px;background:var(--panel);border:1px dashed var(--red);padding:14px 18px;font-size:13px;color:var(--ink-soft);border-radius:3px}
+  /* 阅读与无障碍补充 */
+  :root{--muted:#6c604c}
+  section,footer{scroll-margin-top:100px}
+  a{color:var(--indigo);text-underline-offset:3px}
+  a:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+  .reading-note{padding:18px 22px;background:var(--indigo-bg);border-left:4px solid var(--indigo);margin-top:28px}
+  .reading-note p{font-size:14px}
+  @media(max-width:600px){
+    .wrap{padding:0 16px 40px}.hero{margin:16px 12px 0;padding:36px 20px 28px}
+    .hero h1{font-size:29px;letter-spacing:.04em}.hero .sub{font-size:14px;letter-spacing:0}
+    nav .wrap{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;padding:0 16px;gap:16px}
+    nav a{white-space:nowrap}.sec-head{gap:10px}.sec-head h2{font-size:22px}.sec-head .en{display:none}
+    figure{padding:16px 8px}.scroll{padding:16px}section{margin-top:36px}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  @media print{nav{position:static}.hero{margin-top:0}body{background:white}.wrap{padding-bottom:0}figure,.card,.evidence{break-inside:avoid}a{color:inherit}}
+
+  .professional-plate{width:100%;height:auto;display:block}
+  .plate-window{overflow:hidden;width:100%;border-radius:5px;background:#f4eee0}
+  .plate-window img{display:block;height:auto}
+  figure svg{width:100%;display:block}
+  figcaption{color:#655842;text-align:left;padding:10px 4px 0;border-top:1px solid var(--line)}
+  @media(max-width:600px){.fig-grid{grid-template-columns:1fr}figcaption{font-size:14px;line-height:1.8}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+  <div class="seal">民俗考察</div>
+  <div class="kicker">民 俗 资 料 考 察 报 告</div>
+  <h1>定 狗 术 <em>·</em> 研 究 报 告</h1>
+  <div class="sub">民间定身术谱系考 · 定狗符与口诀全录 · 画符仪轨 · 有效性实证检验</div>
+  <div class="meta">文献跨度：唐《禁经》 — 民国抄本 — 当代田野记录 ｜ 2026 年 11 月</div>
+</header>
+
+<nav aria-label="报告章节导航">
+  <div class="wrap">
+    <a href="#summary">摘要 · 壹</a>
+    <a href="#origin">贰 · 源流谱系</a>
+    <a href="#methods">叁 · 定狗四法</a>
+    <a href="#fulu">肆 · 画符仪轨</a>
+    <a href="#verify">伍 · 有效性验证</a>
+    <a href="#folklore">补 · 民俗与校核</a>
+    <a href="#conclusion">陆 · 结论</a>
+    <a href="#sources">附 · 资料来源</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ================= 壹 摘要 ================= -->
+<section id="summary">
+  <div class="sec-head"><span class="sec-no">壹</span><h2>研究摘要</h2><span class="en">Summary</span></div>
+  <p class="lead">「把狗定住」在民间不是单一法术，而是<strong>四套独立传承</strong>：唐代医家咒禁、正一符箓派定身法、乡土草医定狗符、江湖迷狗咒。本报告将其符、咒、诀全部复原，并用动物行为学文献与对照实验检验其效力。</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="tag">发 现 一</div>
+      <h5>专门「定狗」的完整操作确实存在</h5>
+      <p>湖南石门县政府文化档案收录：定狗口诀、定狗符（圈内「犬」、圈外「虎」）、无符黄土块手法——检索范围内最切题的一手民俗记录。</p>
+    </div>
+    <div class="card">
+      <div class="tag">发 现 二</div>
+      <h5>「定住」可复现，且已被学术证实</h5>
+      <p>动物行为学称<strong>强直不动（tonic immobility）</strong>。犬类实验（Reese 1981；Massey 大学 1993）证明：物理保定后狗确实进入不动状态——但触发它的是保定，不是咒语。</p>
+    </div>
+    <div class="card sci">
+      <div class="tag">发 现 三</div>
+      <h5>符咒口诀是仪式框架，非致动因素</h5>
+      <p>定蛇消符对照实验：<strong>不画符，蛇同样不动</strong>；偷狗案件警方归因为气味熟悉与口哨，从未提及咒语。符咒的真实功能是为保定动作争取时间、提供心理结构。</p>
+    </div>
+  </div>
+  <p class="small">性质声明：本报告为民俗学资料整理，所录符咒均属民间信仰范畴，不具实证效力。科学解释见第伍节；现实犬患处置见第陆节。</p>
+</section>
+
+<!-- ================= 贰 源流 ================= -->
+<section id="origin">
+  <div class="sec-head"><span class="sec-no">贰</span><h2>源流谱系</h2><span class="en">Lineage</span></div>
+  <p>定身类法术有清晰的制度史与文献链：它曾在国家医疗体系中占有一席之地，后下渗为民间遗存。</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="era">先秦 — 秦汉 · 巫医同源</div>
+      <h5>祝由与禁咒萌芽。</h5><p>《周礼》载疡医「掌……之祝药劀杀之齐」；马王堆《五十二病方》含禁咒方 38 种。</p>
+    </div>
+    <div class="tl-item">
+      <div class="era">隋 — 唐 · 国家医学教育体系</div>
+      <h5>太医署「咒禁科」。</h5><p>唐设咒禁博士、咒禁师、咒禁工、咒禁生共 21 人，与医、针、按摩并列。《唐六典》：「有道禁，出于山居方术之士；有禁咒，出于释氏。」</p>
+    </div>
+    <div class="tl-item">
+      <div class="era">唐 · 孙思邈《千金翼方·禁经》</div>
+      <h5>咒禁术首次系统整理。</h5><p>两卷二十二篇、二万四千余字，为后世咒禁教本。其中卷三十《禁狗鼠第十九》是现存最早的「禁狗」专题文献。</p>
+    </div>
+    <div class="tl-item">
+      <div class="era">宋 — 元 · 符箓三宗</div>
+      <h5>正一系统法术化。</h5><p>茅山、阁皂山、龙虎山并称「三山符箓」；定身、千斤榨等「制人之法」在秘传抄本中定型，明言「可定任何活着的动物」。</p>
+    </div>
+    <div class="tl-item">
+      <div class="era">明 — 清 · 民间法教</div>
+      <h5>下渗为防身之术。</h5><p>供奉二郎真君的「西天佛法」等法教各派将定身法转为制歹、防身之用。</p>
+    </div>
+    <div class="tl-item">
+      <div class="era">近现代 · 乡土与江湖</div>
+      <h5>分化为「防」与「盗」两路。</h5><p>石门县草医以咒符定恶狗（防）；湘西迷狗咒在偷狗贼与乞丐中秘传（盗）。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 叁 定狗四法 ================= -->
+<section id="illustrated-plates"><div class="sec-head"><span class="sec-no">图</span><h2>符式与手诀 · 写实研究图版</h2></div><p>以下为依据本报告文字制作的 AI 辅助研究插图，不是历史原件摹本。写实图用于辨认手形，后文指位图用于逐指核对；传承底本尚缺的项目仍以校核表为准。</p><figure><a href="assets/手诀专业图版.png" target="_blank" rel="noopener" aria-label="打开高清图版"><img src="assets/手诀专业图版.png" alt="① 剑指：食、中指并拢伸直；② 原稿所述二郎诀：拇指压中、无名指，食、小指伸直；③ 迷狗手势第一步：拇、食、小指伸展。均为掌面视图；③的左右手是插图选择，报道未限定。" style="display:block;width:100%;height:auto" loading="lazy"></a><figcaption>① 剑指：食、中指并拢伸直；② 原稿所述二郎诀：拇指压中、无名指，食、小指伸直；③ 迷狗手势第一步：拇、食、小指伸展。均为掌面视图；③的左右手是插图选择，报道未限定。 点击可查看独立高清原图。</figcaption></figure><figure><a href="assets/定狗符与掌诀专业图版.png" target="_blank" rel="noopener" aria-label="打开高清图版"><img src="assets/定狗符与掌诀专业图版.png" alt="左：圈内犬、圈外虎，据原稿文字复原；虎字在上为版面选择。右：左掌犬字与土块位置的展开示意，显示按压关系，并非最终握拳姿势。石块遮住的点画不可凭此图校字。" style="display:block;width:100%;height:auto" loading="lazy"></a><figcaption>左：圈内犬、圈外虎，据原稿文字复原；虎字在上为版面选择。右：左掌犬字与土块位置的展开示意，显示按压关系，并非最终握拳姿势。石块遮住的点画不可凭此图校字。 点击可查看独立高清原图。</figcaption></figure></section>
+<section id="methods">
+  <div class="sec-head"><span class="sec-no">叁</span><h2>四种定狗传承：符、咒、诀全录</h2><span class="en">Methods</span></div>
+
+  <h3>四系总览对照表</h3>
+  <div class="tbl-wrap">
+  <table class="big-table">
+    <thead>
+      <tr><th style="width:11%">项目</th><th style="width:22%">唐《禁经》禁狗咒组</th><th style="width:22%">正一茅山定身法</th><th style="width:22%">乡土草医定狗符·土块法</th><th style="width:22%">江湖迷狗咒</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>时代 · 来源</td>
+        <td>唐·孙思邈《千金翼方》卷三十《禁经下·禁狗鼠第十九》，太医署咒禁科教本</td>
+        <td>明清秘传抄本《茅山法术秘传》《正一教》系统，各本文字高度一致</td>
+        <td>近现代·湖南石门县政府文化档案《灵符巫术》</td>
+        <td>近现代·湘西巫术民俗调查（新湖南·湖南日报）</td></tr>
+      <tr><td>使用者</td><td>咒禁博士、咒禁师、咒禁生（国家医疗编制）</td><td>道士、法教弟子</td><td>草医、匠人</td><td>偷狗贼、讨米乞丐</td></tr>
+      <tr><td>针对目标</td><td>令狗不咬人、治狗毒、入门不吠</td><td>「定任何活着的动物」及人，防身制歹</td><td>定住恶狗猛犬，防其伤人</td><td>令狗不吠并乖乖跟人走</td></tr>
+      <tr><td>符式</td>
+        <td>以咒禁为主；配「西厢屋檐下土／灶中黄土和苦酒作泥丸」外摩</td>
+        <td>定身符（原书注「见符图：8」，网络传本未附图）；民间简化为「一圈一点」</td>
+        <td><b>圆圈内书「犬」字，圆圈外书「虎」字</b>（虎镇犬）；或无符用左手心土块法</td>
+        <td>无符，纯手法加咒语</td></tr>
+      <tr><td>核心咒语（摘）</td>
+        <td>「日出东方何堂堂？狗不名狗名大黄……若啮人伤，白虎吞入汝肠。急急如律令。」</td>
+        <td>「天灵灵、地灵灵，定身祖师来降临……二脚入地不动摇，吾奉太上老君急急如律令。」</td>
+        <td>「赫赫扬扬，日出东方……前捆狗头，后捆狗脚，锁到狗子，不准动脚。」</td>
+        <td>「抬头望青天，师傅在身边……我身化为狗走，狗走化为羊，前开三光……」</td></tr>
+      <tr><td>手法 · 手诀</td>
+        <td>以气嘘呵；捻狗目；向王闭气、七息七禁；入人家先脚踏门右</td>
+        <td>右手捏<b>剑指</b>，向目标一指</td>
+        <td><b>左手心</b>书「犬」字，土块压在「犬」字的一点上，大拇指压住土块，四指合拢成拳</td>
+        <td>拇指、食指、小指<b>三指呈叉状</b>指狗头；再张掌从狗头抹到狗尾</td></tr>
+      <tr><td>施用步骤</td>
+        <td>命名（改称「大黄」）→ 申职（只啮猴鼠）→ 示威（白虎吞肠）→ 嘘呵捻目</td>
+        <td>① 念定身咒 → ② 画定身符于目标身体 → ③ 剑指一指 → ④ 大喝「定」</td>
+        <td>「观相」后画符念诀；或无符时寻黄土块 → 左手心书「犬」→ 土块压字 → 握拳念诀</td>
+        <td>叉指狗头 → 张掌抹向狗尾 → 同时念咒</td></tr>
+      <tr><td>解除 / 反制</td>
+        <td>无专门解法（功能型禁咒，事毕即止）</td>
+        <td>解退咒「千法解，万法解……铁牛祖师来解退，铜牛祖师来解退」，画解退符念咒即解</td>
+        <td>记录未载解法</td>
+        <td>无咒解，主人一声叫唤即可唤醒</td></tr>
+      <tr><td>修炼前提</td>
+        <td>医官教学体系；受禁须持斋戒、知禹步与掌诀</td>
+        <td>连续修炼<b>四十九天</b>（野外坟地）；无此条件则静室练<b>一百二十天</b>，不得间断</td>
+        <td>无修炼期，随身可施</td>
+        <td>师承口传，无固定修炼期</td></tr>
+      <tr><td>现代检验</td>
+        <td><span class="verdict v-part">祖式地位</span>后世定兽咒「命名—申职—威慑」结构源此</td>
+        <td><span class="verdict v-yes">现象可复现</span><span class="verdict v-no">咒符非必要</span>消符对照：不画符目标同样不动</td>
+        <td><span class="verdict v-part">田野孤证</span>检索范围内唯一完整定狗记录，无对照验证</td>
+        <td><span class="verdict v-no">非必要因素</span>案件记录显示气味＋口哨即可复现</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="small">四系共用同一技术内核：<b>物理控制先行，仪式叙事加持</b>。共同祖式可追至《禁经》「命名—申职—威慑」结构；至民间层则删繁为「封闭意象（圈／锁／拳）＋短咒＋一声断喝」。</p>
+
+  <hr style="border:none;border-top:1px solid var(--line);margin:36px 0">
+
+  <!-- 方法一 -->
+  <h3>方法一 · 石门县「定狗符」——乡土草医的专门定狗术</h3>
+  <p>来源：石门县人民政府文化档案《灵符巫术》，载当地草医、匠人「若见恶狗伤人，就用咒符定狗」。操作分符法与无符法两条路径。</p>
+
+  <div class="scroll">
+    <div class="label">定 狗 口 诀 · 原 文</div>
+    <div class="incantation">「赫赫扬扬，日出东方，你家有只恶狗，不论黑白花黄，前有千根麻绳，后有万根麻索，前捆狗头，后捆狗脚，锁到狗子，不准动脚。」</div>
+    <div class="note">念诀时「观相」后对狗画符，记录称「恶狗猛犬就被定住」。</div>
+  </div>
+
+  <div class="fig-grid">
+    <figure>
+      <div class="plate-window" role="img" aria-label="定狗符与掌诀专业图版.png第1图"><img src="assets/定狗符与掌诀专业图版.png" alt="" loading="lazy" style="width:200%;max-width:none;transform:translateX(-0.0%);"></div>
+      <figcaption><span class="small">【研究示意图，非原件影印】</span> <b>定狗符</b>：一个圆圈，圈内书「犬」字，圆圈外书「虎」字（虎字方位为排版选择，原件待核；“虎镇犬”为解释）。</figcaption>
+    </figure>
+
+    <figure>
+      <div class="plate-window" role="img" aria-label="定狗符与掌诀专业图版.png第2图"><img src="assets/定狗符与掌诀专业图版.png" alt="" loading="lazy" style="width:200%;max-width:none;transform:translateX(-50.0%);"></div>
+      <figcaption><span class="small">【研究示意图，非原件影印】</span> <b>无符法（黄土块诀）</b>：左手心书「犬」字 → 土块压住「犬」字的一点 → 大拇指压住土块、四指合拢成拳 → 念定狗诀。</figcaption>
+    </figure>
+  </div>
+  <p class="small">同源记录另有治狗咬伤「土」字诀（「天上金鸡叫，地下子鸡啼……金木水火土，生肌皮和口」，黄土外敷），及当地草医「杀狗巫术」的存在性记载（诀文未采录）。其五行解释为「狗属亥，为土所克」——系民间归类（传统地支中狗实属戌），照录存疑。</p>
+
+  <hr style="border:none;border-top:1px solid var(--line);margin:36px 0">
+
+  <!-- 方法二 -->
+  <h3>方法二 · 正一茅山「定身法」——明言可定「任何活着的动物」</h3>
+  <p>来源：《茅山法术秘传》《正一教》等秘传抄本系统（各本文字高度一致）。流传最广的通用定身法，狗自然在列。</p>
+
+  <div class="scroll">
+    <div class="label">定 身 咒 · 原稿校订文</div>
+    <div class="incantation">「天灵灵、地灵灵，定身祖师来降临，铁牛祖师来降临，铜牛祖师来降临。定你头，定你腰，定你腿。前不动，后不动，左不动，右不动。手一指，喊声『定』，说不动，就不动，抬不起手，扭不动腰，二脚入地不动摇，谨请南斗六星，北斗七星，吾奉太上老君急急如律令。」</div>
+    <div class="note">异文校记：诸抄本作「南头六星」或「南斗六郎」，当为「南斗六星」之讹（同书解退咒即作「南斗六星」，原稿径改；底本未取得，此处仅保留校订文，不视作底本原貌）；「定身祖师来降临」一本作「来显灵」。</div>
+  </div>
+
+  <h4>操作四步</h4>
+  <ol class="steps">
+    <li><b>念咒</b>：面对目标（狗）诵定身咒一遍。</li>
+    <li><b>画符</b>：画定身符于狗身一次。抄本原文注「见符图：8」，今网络传本未附该图；民间简化版为「<b>画一个圈，圈里点一个点</b>」，配请「南斗六星、北斗七星，奉太上老君急急如律令」。</li>
+    <li><b>掐剑指</b>：右手捏剑指，向狗一指。</li>
+    <li><b>喝「定」</b>：大喝一声「定」。抄本称熟练后「不用念咒画符，只要剑指一指、喊一声定」方为真掌握。</li>
+  </ol>
+
+  <div class="fig-grid">
+    <figure>
+      <div class="plate-window" role="img" aria-label="手诀专业图版.png第1图"><img src="assets/手诀专业图版.png" alt="" loading="lazy" style="width:300%;max-width:none;transform:translateX(-0.0%);"></div>
+      <figcaption><span class="small">【研究示意图，非原件影印】</span> <b>剑指</b>：食指、中指并拢伸直，其余三指屈握；向目标一指并喝「定」。</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="一圈一点 · 几何关系示意"><rect x="8" y="8" width="704" height="484" rx="12" fill="#fbf6e9" stroke="#d9ccae"/><text x="40" y="52" font-size="23" fill="#7a2318" font-family="serif">一圈一点 · 几何关系示意</text><circle cx="360" cy="258" r="144" fill="none" stroke="#9e2f22" stroke-width="5"/><circle cx="360" cy="258" r="10" fill="#9e2f22"/><text x="40" y="452" font-size="18" fill="#4a4132" font-family="serif">仅表现所述圆与点；不推定笔顺，不代替缺失符图。</text></svg>
+      <figcaption><span class="small">【研究示意图，非原件影印】</span> <b>一圈一点</b>：原稿称今传抄本未附原图。本图仅示“一圈一点”，不是“符图8”；其来源与笔顺待核。</figcaption>
+    </figure>
+  </div>
+
+  <div class="scroll">
+    <div class="label">解 退 咒 · 原 文</div>
+    <div class="incantation">「千法解，万法解，只有我来解，铁牛祖师来解退，铜牛祖师来解退，叫你走，你就走，谨请南斗六星，北斗七星，吾奉太上老君急急如律令。」</div>
+    <div class="note">用法：在对方面前画解退符，同时念咒即可解退。</div>
+  </div>
+
+  <p class="small"><b>修炼门槛</b>：抄本要求连续修习四十九天且「要在野外坟地中修练」；无此条件则家中静室练一百二十天，不得间断。<b>加重版「千斤榨」</b>（灵官咒）：「灵官使起泰山榨，泰山重的千斤榨……千人抬不起，万人拉不起」，抄本明确警告「可制人于死地，用时一定要慎重」；其解法为「九牛咒」。</p>
+
+  <hr style="border:none;border-top:1px solid var(--line);margin:36px 0">
+
+  <!-- 方法三 -->
+  <h3>方法三 · 二郎真君定身法——民间法教「西天佛法」所传</h3>
+  <p>与茅山系不同：先供奉、后修炼，用时只需掐诀念咒，无临场画符动作。</p>
+
+  <div class="scroll">
+    <div class="label">二 郎 定 身 咒 · 原稿校订文</div>
+    <div class="incantation">「天乱骨、地乱骨，西天我佛来乱骨，一乱头、头不动，二乱身、骨发软，浑身筋骨都乱定，吾奉太上老君急急如律令！」</div>
+  </div>
+
+  <ol class="steps">
+    <li><b>设坛供奉</b>：书「灌江口二郎显圣真君」牌位，设坛供奉香火<b>不少于四十九日</b>。</li>
+    <li><b>定时修持</b>：四十九日后，每日寅时起掐诀念咒，至卯时前止，<b>四十九日功成</b>。</li>
+    <li><b>掐二郎诀</b>：右手大拇指压住中指及无名指指甲盖，其余二指（食指、小指）伸直。</li>
+    <li><b>用诀</b>：面对目标，掐诀念咒即可，原传承称「可令人浑身绵软无力」，本用于制服歹人。</li>
+  </ol>
+
+  <figure style="max-width:640px;margin-left:auto;margin-right:auto">
+    <div class="plate-window" role="img" aria-label="手诀专业图版.png第2图"><img src="assets/手诀专业图版.png" alt="" loading="lazy" style="width:300%;max-width:none;transform:translateX(-33.333333333333336%);"></div>
+    <figcaption><span class="small">【研究示意图，非原件影印】</span> <b>二郎诀</b>：大拇指压中指与无名指指甲盖，食指、小指伸直——修炼与用时全程掐此诀。</figcaption>
+  </figure>
+
+  <hr style="border:none;border-top:1px solid var(--line);margin:36px 0">
+
+  <!-- 方法四 -->
+  <h3>方法四 · 湘西「迷狗咒」——让狗主动跟人走</h3>
+  <p>来源：湘西巫术民俗调查（新湖南·湖南日报）。与「定住」相反，目标是让狗服帖跟随；使用群体为<strong>旧时偷狗贼与讨米乞丐</strong>。</p>
+
+  <div class="scroll">
+    <div class="label">迷 狗 咒 · 原 文</div>
+    <div class="incantation">「抬头望青天，师傅在身边，您在高山请下平地，平地请您护身，我身化为狗走，狗走化为羊，前开三光，吾奉太上老君急急如律令。」</div>
+  </div>
+
+  <h4>配套手法（两步）</h4>
+  <ol class="steps">
+    <li><b>三指叉</b>：见狗来到眼前，伸出拇指、食指和小指，张开呈叉状，向前突伸，指向狗头。</li>
+    <li><b>抹尾</b>：完全张开五指成掌，象征性地从狗头抹到狗尾，同时念咒。</li>
+  </ol>
+
+  <figure>
+    <img class="professional-plate" src="assets/迷狗动作研究图版.png" alt="迷狗动作两步研究示意：三指朝向犬头，然后张掌虚抹；动作方向见图注" loading="lazy">
+    <figcaption><span class="small">【研究示意图，非原件影印】</span> <b>迷狗咒手法</b>：三指叉（拇指、食指、小指伸开）指向狗头，再张掌从狗头向狗尾作象征性虚抹。插图不限定原报道未说明的左右手；图中手掌位置仅示动作起点。</figcaption>
+  </figure>
+
+  <div class="evidence">
+    <div class="label">记 载 者 的 评 述</div>
+    <p>「现在乡下偷狗贼可厉害了，根本不用咒语，用毒药毒，用带剧毒的弩箭射……在这些强盗面前，咒语也失效了。」——记录者本人即指出：同一目的，现实手段早已取代咒语。</p>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--line);margin:36px 0">
+
+  <!-- 附：唐禁经 -->
+  <h3>附 · 唐《禁经》「禁狗鼠第十九」古咒组（文献源头）</h3>
+  <p>《千金翼方》卷三十所载，现存最早的成体系禁狗文献，为上述民间技法的远祖：</p>
+
+  <div class="spell-grid">
+    <div class="scroll">
+      <div class="label">禁 狗 命 名 咒</div>
+      <div class="incantation">「日出东方何堂堂？狗不名狗名大黄，皇帝遣汝时，令啮猴与鼠，不令汝啮人伤。若啮人伤，白虎吞入汝肠。急急如律令。」</div>
+      <div class="note">思路：改其名、申其职、示其罚——后世定狗诀是其流裔。</div>
+    </div>
+    <div class="scroll">
+      <div class="label">禁 狗 毒 法（治狗咬伤）</div>
+      <div class="incantation">「犬牙狗齿，天父李子，教我唾汝，毒出乃止。皇帝之神，食汝脑髓；白虎之精，食汝之形。唾汝二七，狗毒便出。急急如律令。」</div>
+      <div class="note">原注：「以气嘘呵之，捻狗目，左营目，向王为之。」</div>
+    </div>
+    <div class="scroll">
+      <div class="label">禁 狗 令 不 咬 人 法</div>
+      <div class="incantation">「吾口如天门，不可枉张，舌如拔剑，唾如秋霜。北斗照耀，列宿天苍。毕集声气，正其发扬。牵牛持形，织女侍旁。此之小狗，咒之灭亡。天狗地狗，何反不走？欲伤我者，牙折口哑。急急如律令。」</div>
+      <div class="note">原注：「捻狗目，向王闭气，七息七禁之，令不咬人。」</div>
+    </div>
+    <div class="scroll">
+      <div class="label">禁 狗 不 吠 人 法（入 门 先 念）</div>
+      <div class="incantation">「黄狗子，养你遣防贼捕鼠，你何以啮他东家童男、西家童女？吾请黄帝、灶君、震宫社土，付与南山黄斑、北山黑虎，左脚踏汝头，右脚踏汝肚……三家井底黄土塞汝口，吾禁你四脚蜷不得走……吾出十里，汝亦莫起。急急如律令。」</div>
+      <div class="note">配套「进门咒」：「主人某甲家，门丞户尉，篱落诸神……师来莫惊，师去莫瞋。急急如律令。」</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 肆 画符仪轨 ================= -->
+<section id="fulu">
+  <div class="sec-head"><span class="sec-no">肆</span><h2>画符仪轨：按规矩画，而非随手涂</h2><span class="en">Ritual</span></div>
+  <p>民间有谚：「<b>画符不知窍，反惹鬼神笑；画符若知窍，惊得鬼神口叫</b>。」所谓「窍」，即符令的结构与仪轨。</p>
+
+  <div class="fig-grid">
+    <figure>
+      <svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="符令结构 · 分区阅读图"><rect x="8" y="8" width="704" height="484" rx="12" fill="#fbf6e9" stroke="#d9ccae"/><text x="40" y="52" font-size="23" fill="#7a2318" font-family="serif">符令结构 · 分区阅读图</text><rect x="55" y="85" width="220" height="54" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="80" y="120" font-size="23" fill="#4a4132" font-family="serif">符头</text><path d="M285 112 H335" stroke="#b08d4f" stroke-width="2"/><text x="350" y="119" font-size="19" fill="#4a4132" font-family="serif">起首位置</text><rect x="55" y="152" width="220" height="54" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="80" y="187" font-size="23" fill="#4a4132" font-family="serif">主事神佛</text><path d="M285 179 H335" stroke="#b08d4f" stroke-width="2"/><text x="350" y="186" font-size="19" fill="#4a4132" font-family="serif">神名或主事标识</text><rect x="55" y="219" width="220" height="54" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="80" y="254" font-size="23" fill="#4a4132" font-family="serif">符腹</text><path d="M285 246 H335" stroke="#b08d4f" stroke-width="2"/><text x="350" y="253" font-size="19" fill="#4a4132" font-family="serif">主体内容区域</text><rect x="55" y="286" width="220" height="54" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="80" y="321" font-size="23" fill="#4a4132" font-family="serif">符胆</text><path d="M285 313 H335" stroke="#b08d4f" stroke-width="2"/><text x="350" y="320" font-size="19" fill="#4a4132" font-family="serif">传统解释中的关键部位</text><rect x="55" y="353" width="220" height="54" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="80" y="388" font-size="23" fill="#4a4132" font-family="serif">符脚</text><path d="M285 380 H335" stroke="#b08d4f" stroke-width="2"/><text x="350" y="387" font-size="19" fill="#4a4132" font-family="serif">收束位置</text><text x="40" y="468" font-size="17" fill="#4a4132" font-family="serif">分析框架：各传统命名、位置与构成不必完全一致。</text></svg>
+      <figcaption><span class="small">【研究示意图，非原件影印】</span> <b>符令五要素</b>：符头、主事神佛、符腹、符胆、符脚。这是结构解释，不能作为各派统一的绘符规范。原图尚未取得，暂保留分析图，不用生成的花纹冒充原符。参见<a href="https://ccaa.cdu.edu.cn/info/1091/3385.htm">文玲《道教符箓结构及心理治愈功能考略》</a>及<a href="https://www.daoisms.com.cn/2010/01/12/22507/">道音文化关于符胆的材料</a>；二者结构位置的表述存在差别，应分别阅读。</figcaption>
+    </figure>
+    <div>
+      <h4 style="margin-top:0">符头咒（「踏符头」）</h4>
+      <p>三勾代表三清（或三界公），一笔一咒：「一笔天下动；二笔祖师剑；三笔凶神恶煞去千里外。」无三勾则念：「天圆地方，律令九章，吾今下笔，万鬼伏藏。」</p>
+      <h4>画符前的「敕器」咒</h4>
+      <p>笔墨纸砚朱砂须先以神咒敕过。例如——</p>
+      <ul style="margin:6px 0 6px 20px;font-size:14px;color:var(--ink-soft)">
+        <li style="margin:5px 0"><b>笔咒</b>：「居收五雷神将，电灼光华，纳则一身保命，上则缚鬼伏邪……」<span class="small">（底本后句有讹夺）</span></li>
+        <li style="margin:5px 0"><b>朱砂咒</b>：「丹石镇凶魔灭鬼崩，研书灵符，三界通行，急急如律令。」<span class="small">（底本如此）</span></li>
+        <li style="margin:5px 0"><b>水咒</b>：「此水不非凡水，北方壬癸水，一点在砚中，云雨须臾至……」（砚咒、墨咒各一篇，兹略）</li>
+      </ul>
+      <h4>场域与身仪</h4>
+      <p>设坛行祭礼；术者净心、净身、净面、净手、漱口，上香跪拜祝告，正襟危坐，<b>存思运气，一气呵成，中间不可停顿</b>；边画边轻声念咒并<strong>吹气于符中</strong>；左手掐日君诀（或月君诀、天纲诀）以「取日月真气入符」。</p>
+    </div>
+  </div>
+
+  <h3>锁形「定身符」的文字复原（底本待核）</h3>
+  <div class="fig-grid">
+    <figure>
+      <img class="professional-plate" style="max-width:620px;margin:auto" src="assets/锁形符朱书文意复原.png" alt="黄纸朱书锁形图，外书天罡大圣救令、内书定身；文字复原，非底本摹绘" loading="lazy">
+      <figcaption><span class="small">【研究示意图，非原件影印】</span> <b>锁形定身符</b>：画一锁形，内写「定身」，外写「天罡大圣救令」，“令人或妖邪定身不能步履”为材料中的声称。锁轮廓只作文字解释，不是原符摹写。</figcaption>
+    </figure>
+    <div>
+      <h4 style="margin-top:0">另一套配咒（三山九侯先生系统）</h4>
+      <div class="scroll" style="margin-top:10px">
+        <div class="incantation" style="font-size:15.5px">「日出东方，黑庶腾腾。千人万人，眼黑错错，前面山当，后面水箱，左边龙蟠，右边虎文。吾奉三山九侯先生律令摄。」</div>
+        <div class="note">施法程序：向东方取炁一口，吸入腹内，流至脐下一寸三分，再上升至口，对笔一呵（底本此段与「变蛇符」条互见，照录如此）——与《禁经》「以气嘘呵之」同源。</div>
+      </div>
+      <h4>简化逻辑</h4>
+      <p>正规定身符（锁形＋救令＋取炁呵笔）与民间简符（一圈一点）之间，只保留了<strong>「封闭」与「一点胆」</strong>两个核心意象——这正是民间层对道教层的功能化删减。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 伍 有效性验证 ================= -->
+<section id="verify">
+  <div class="sec-head"><span class="sec-no">伍</span><h2>有效性验证：什么被证实了，什么没有</h2><span class="en">Verification</span></div>
+  <p class="lead">将「定狗术」的声称拆为可检验的四项逐条对证。<strong>总体结论：「把狗定得不动」是可复现的真实现象，但其机制是物理保定诱发的动物防御僵直，与符咒口诀无因果关系。</strong></p>
+
+  <div class="stat-row">
+    <div class="stat"><div class="num">132</div><div class="cap">Massey 大学实验受试犬数量<br>（倒置＋30 秒侧卧保定）</div></div>
+    <div class="stat"><div class="num">7.6%</div><div class="cap">表现出强直不动（TI）的犬比例<br>（10/132，1993）</div></div>
+    <div class="stat"><div class="num">10 / 10</div><div class="cap">紧张型指针犬全部诱发 TI<br>（Reese 等，1981）</div></div>
+    <div class="stat"><div class="num">近 4 小时</div><div class="cap">心理学家吉布森记录到一只鸡<br>「装死」的时长上限</div></div>
+  </div>
+
+  <h3>5.1 现象：「狗能被定住不动」——证实存在</h3>
+  <p>动物行为学称之为<strong>强直不动（tonic immobility，TI）</strong>，又称动物催眠、假死、吓直：由<strong>保定（restraint）</strong>诱发的相对不动状态，被视为「终极防御反应」——当战或逃均已失败，动物以静止迷惑捕食者（多数捕食者拒食死物）。</p>
+  <ul style="margin:8px 0 8px 22px;color:var(--ink-soft);font-size:14.5px">
+    <li style="margin:5px 0"><b>物种分布极广</b>：昆虫、甲壳类、鱼类、两栖类、爬行类、鸟类与哺乳动物（含灵长类与人类）均可出现。</li>
+    <li style="margin:5px 0"><b>犬类证据一</b>：Reese、Newton 与 Angel（1981）首次系统演示犬类 TI——10/10 只紧张型指针犬经「手动倒置入吊带并抚摸」诱发，伴遥测心率下降，解除后心率显著回升。</li>
+    <li style="margin:5px 0"><b>犬类证据二</b>：Ong（1993，Massey 大学兽医行为学硕士论文）以 132 只犬做倒置＋30 秒侧卧保定，10 只（7.6%）符合 TI 标准；期间强刺激（巨响、捏趾间、插入体温计）<strong>不能终止</strong> TI；胆小犬明显更易感。</li>
+    <li style="margin:5px 0"><b>鸡（定鸡术）证据</b>：保定约 15 秒即可诱发；时长与恐惧程度正相关（鹰眼组 5 分余 vs 木棍组 45 秒）；有遗传性（父母 43 分钟者，后代约 39 分钟）。</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="动物防御反应 · 概念层次"><rect x="8" y="8" width="704" height="484" rx="12" fill="#fbf6e9" stroke="#d9ccae"/><text x="40" y="52" font-size="23" fill="#7a2318" font-family="serif">动物防御反应 · 概念层次</text><rect x="55" y="90" width="610" height="80" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="80" y="124" font-size="24" fill="#4a4132" font-family="serif">觉醒／警戒</text><text x="80" y="152" font-size="18" fill="#4a4132" font-family="serif">对环境变化作出反应</text><rect x="55" y="195" width="610" height="80" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="80" y="229" font-size="24" fill="#4a4132" font-family="serif">战、逃或冻结</text><text x="80" y="257" font-size="18" fill="#4a4132" font-family="serif">行为受情境与个体差异影响</text><rect x="55" y="300" width="610" height="80" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="80" y="334" font-size="24" fill="#4a4132" font-family="serif">强直不动 TI</text><text x="80" y="362" font-size="18" fill="#4a4132" font-family="serif">与一般静止、安静服从须区分</text><text x="40" y="452" font-size="19" fill="#4a4132" font-family="serif">概念分层，非所有犬必经的固定顺序。</text><text x="40" y="477" font-size="17" fill="#4a4132" font-family="serif">本图不作为民俗个案机制的诊断证明。</text></svg>
+    <figcaption><span class="small">【研究示意图，非原件影印】</span> <b>防御级联</b>（节点据 Vet Help Direct 综述绘制）：警戒、战逃或冻结与 TI 属不同概念层次；本图不再把它们画成每只犬必经的单一路径，也不据此认定民俗个案的机制。</figcaption>
+  </figure>
+
+  <h3>5.2 因果：符咒是否必要——对照实验说「否」</h3>
+
+  <div class="fig-grid">
+    <figure>
+      <svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="定蛇报道 · 比较关系图"><rect x="8" y="8" width="704" height="484" rx="12" fill="#fbf6e9" stroke="#d9ccae"/><text x="40" y="52" font-size="23" fill="#7a2318" font-family="serif">定蛇报道 · 比较关系图</text><rect x="45" y="95" width="300" height="170" rx="10" fill="#f1ead9" stroke="#c5b48f"/><rect x="375" y="95" width="300" height="170" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="70" y="135" font-size="23" fill="#4a4132" font-family="serif">报道中的演示</text><text x="70" y="180" font-size="19" fill="#4a4132" font-family="serif">包含画符环节</text><text x="70" y="222" font-size="19" fill="#4a4132" font-family="serif">叙述结果：蛇不动</text><text x="400" y="135" font-size="23" fill="#4a4132" font-family="serif">报道中的去符比较</text><text x="400" y="180" font-size="19" fill="#4a4132" font-family="serif">省略画符环节</text><text x="400" y="222" font-size="19" fill="#4a4132" font-family="serif">叙述结果：蛇仍不动</text><text x="50" y="320" font-size="22" fill="#4a4132" font-family="serif">比较要点：本次演示不以画符为必要环节。</text><text x="50" y="368" font-size="19" fill="#4a4132" font-family="serif">不能直接推出：所有蛇、所有犬或所有术法均如此。</text><text x="50" y="420" font-size="19" fill="#4a4132" font-family="serif">报道图解，不是本项目实施的动物实验。</text><text x="50" y="462" font-size="17" fill="#4a4132" font-family="serif">原始视频、样本及程序仍需核对。</text></svg>
+      <figcaption><span class="small">【研究示意图，非原件影印】</span> <b>定蛇实验</b>：央视《文明密码》示范后，记者用同一条乌梢蛇做消符对照——不画符同样定住。</figcaption>
+    </figure>
+    <div>
+      <h4 style="margin-top:0">定鸡术的两种「无咒」路径</h4>
+      <p>其一，抓住鸡翅下两根筋拨弄两下，鸡即不动（眼睛仍会动）；其二，强行按在地上，在嘴前画线，数秒后放开——「拍个巴掌」鸡即恢复。1636 年欧洲人即记录了同一现象，当时误以为「鸡的催眠术」。</p>
+      <h4>那么口诀和符起了什么作用？</h4>
+      <ul style="margin:6px 0 6px 20px;font-size:14px;color:var(--ink-soft)">
+        <li style="margin:5px 0"><b>计时器</b>：完成一段咒语/符画需 10–30 秒，正好覆盖 TI 诱发所需的保定时长。</li>
+        <li style="margin:5px 0"><b>动作框架</b>：为施术者规定接近、控制、固定的完整动作序列。</li>
+        <li style="margin:5px 0"><b>心理结构</b>：给施术者与旁观者一套可理解的因果叙事。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>5.3 「迷狗咒让狗跟人走」——案件记录指向气味与口哨</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th style="width:18%">案例</th><th style="width:44%">现象</th><th>警方/记录者归因</th></tr></thead>
+    <tbody>
+      <tr><td>徐州铜山案</td><td>4 人团伙一夜盗 6 条弓背犬，狗未吠未叫，「像遇到老朋友」乖乖上车</td><td>白天多次上门逗狗，<b>让狗熟悉其气味</b>；夜间以口哨引出</td></tr>
+      <tr><td>杭州双浦案</td><td>郑某某靠近任何狗（含金毛、德牧）都能直接牵走，不咬不叫</td><td>民警：「他是专门抓狗的，身上可能跟狗有一种气味可以让狗不叫」，<b>未提及任何咒语</b></td></tr>
+      <tr><td>吉林大安案</td><td>「全村最厉害的狗」被陌生人直接牵走</td><td>嫌疑人有盗狗前科，熟悉犬性；网友猜测「气场/虎骨」属民间附会</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>狗的跟随可由<strong>气味脱敏＋口哨条件反射＋犬行为知识</strong>完整解释，无需引入超自然因素。</p>
+
+  <h3>5.4 综合判定表</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th style="width:32%">民间声称</th><th style="width:20%">判定</th><th>证据依据</th></tr></thead>
+    <tbody>
+      <tr><td>狗（及鸡蛇等动物）能被「定」得不动</td><td><span class="verdict v-yes">现象存在</span></td><td>犬类 TI 文献（Reese 1981；Ong 1993）；定鸡/定蛇重复实验；防御级联理论</td></tr>
+      <tr><td>「不动」由符咒、口诀、掐诀所致</td><td><span class="verdict v-no">不支持</span></td><td>定蛇消符对照：不画符同样定住；TI 诱发的必要条件是物理保定而非语言</td></tr>
+      <tr><td>画符念咒可令狗乖乖跟人走</td><td><span class="verdict v-no">非必要因素</span></td><td>三起盗狗案件均归因气味熟悉、口哨或熟悉犬性，均未提及咒语；无控制条件下的咒语有效记录</td></tr>
+      <tr><td>特定犬只更易被「定住」</td><td><span class="verdict v-part">部分成立</span></td><td>Ong 1993：胆小、应激排泄犬更易出现 TI——但这是气质/恐惧水平因素，与任何神秘归因无关</td></tr>
+      <tr><td>念咒致狗当晚病/死（石门案例）</td><td><span class="verdict v-no">无可核查证据</span></td><td>属单一当事人口述叙事，无第三方记录；符合巫术叙事「事后附会」结构</td></tr>
+      <tr><td>「催眠」动物是安抚手段</td><td><span class="verdict v-no">存在争议</span></td><td>Vet Help Direct（2024）证据综述：兔与犬的 TI 伴随恐惧应激生理指标，属病理恐惧反应而非放松，不鼓励对宠物施加</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="evidence">
+    <div class="label">一 个 可 复 现 的 最 小 模 型</div>
+    <p>将狗侧卧按住约 30 秒后松开——少数胆小个体会出现短暂强直不动（期间心率正常或下降，巨响、捏趾等强刺激亦不终止该状态）。这就是「定身术」在完全去除符咒后的内核。反过来说：<b>缺少物理控制这一前提，符咒本身不产生「定住」效果</b>——这正是现有消符对照实验与案件记录一致指向的结论。</p>
+  </div>
+</section>
+
+
+<section id="folklore">
+<div class="sec-head"><span class="sec-no">补</span><h2>民俗深描与图咒诀校核</h2><span class="en">Folklore &amp; textual notes</span></div>
+<p class="lead">把定狗术放回村落、行旅、入户与师承语境，才能理解符、咒、诀为何成套出现。本节保留各类材料的差异：文献记载、地方讲述、研究解释分别注明，不把异文拼成一套所谓标准法。</p>
+<h3>一 · “定狗”之下，实际有五种诉求</h3>
+<div class="tbl-wrap"><table><thead><tr><th>诉求</th><th>材料中的表现</th><th>民俗研究切入点</th></tr></thead><tbody>
+<tr><td>止吠</td><td>《禁经》有“禁狗不吠人法”</td><td>声音如何成为住宅边界与陌生人警报</td></tr>
+<tr><td>防咬</td><td>另列“禁狗令不咬人法”</td><td>行旅者对身体安全的祈求</td></tr>
+<tr><td>入户</td><td>向人家时先踏门右，并告门丞户尉等神</td><td>人间主人与门户神共同构成入门秩序</td></tr>
+<tr><td>治伤</td><td>禁狗毒、泥土敷伤与咒语同篇出现</td><td>医药与咒禁在文本中的并置，不能等同于定身</td></tr>
+<tr><td>引随</td><td>湘西报道所述“迷狗”</td><td>犬从看门者转为跟随者；与止吠是不同叙事</td></tr>
+</tbody></table></div>
+<p class="small">据<a href="https://www.shidianguji.com/book/SDZJ0087/chapter/1k3ojaz46gto3">识典古籍《千金翼方·禁狗鼠第十九》校录</a>整理。电子校录可用于定位，精校仍需版本影印与页码。本表是功能分类，不是原书新增的篇目。</p>
+<h3>二 · 咒语的语法：命名、申职、召神与敕令</h3>
+<p>《禁经》开篇先改称犬的名字，再申说它应履行的职责，继而引入白虎威慑。可将其读作一场向动物发布命令的仪式话语：先确定对象，再说明秩序，最后宣布违令后果。这是对文本结构的分析，不能单凭结构相似就认定后世各法直接出自此篇。</p>
+<p>同篇入户咒面向门丞户尉、篱落诸神，值得与直接命犬不动的咒分开阅读。前者先处理人与屋宅的关系；后者把注意力集中到犬身。章节虽并列收录，受话对象和使用场景并不相同。</p>
+<h3>三 · 湘西“迷狗”：师傅、行路人与身体动作</h3>
+<p><a href="https://www.hunantoday.cn/news/xhn/201708/14498996.html">新湖南 2017 年报道</a>将迷狗叙事联系到偷狗者，也提到乞讨者畏犬、需要靠近人家求食的生活背景。这提供了职业与行路生活的观察线索；其中关于丐帮传承的推想仍是报道的推想，不能升级为已证实的组织史。</p>
+<p>咒中“师傅”与施术者自身并置，可从传法权威、护身和身份转化三个角度阅读。相关解释属于本报告的分析；报道记下的讲述既不是现场效果实验，也不足以代表整个湘西的统一传统。</p>
+<h3>四 · 手诀不是一个通用姿势</h3>
+<p><a href="https://m.voc.com.cn/xhn/news/201601/15563173.html">《巴岱手诀：人神沟通的掌上秘语》</a>把手诀置于符箓、咒语共同参与的仪式环境中。比较时应记录师承、仪式名称和具体指位，而不能因为手形相似便同名。巴岱材料在此作为区域比较，不作为本报告“二郎诀”图的直接依据。</p>
+<div class="evidence"><div class="label">已核对的具体指位</div>
+<p>湘西“迷狗”报道明确列出第一步伸拇指、食指、小指，第二步五指张掌。原报告迷狗图的伸屈配置与该报道相符。报道未说明左右手、掌心朝向和关节角度，因此本图只表达指位与动作顺序，不补写这些细节。</p></div>
+<h3>五 · 图咒诀逐项核对表</h3>
+<div class="tbl-wrap"><table><thead><tr><th>对象</th><th>本次核对结果</th><th>图文处理原则</th></tr></thead><tbody>
+<tr><td>迷狗诀图</td><td>三指配置、五指展开与报道相符</td><td>保留指位示意，不能充作原传手印照片</td></tr>
+<tr><td>定狗符</td><td>原稿称圈内犬、圈外虎；本次未取得地方原始页面或影印</td><td>保留为据原稿描述的复原；虎字具体方位待核</td></tr>
+<tr><td>黄土块诀</td><td>原稿载左掌、犬字点位、拇指压块；原始记录待补</td><td>现图是分层示意，不是握拳后的真实可见视图</td></tr>
+<tr><td>剑指</td><td>原稿提供伸屈解释，未提供该抄本手诀原图</td><td>只能称通用指位示意，不能认定所有师承细节相同</td></tr>
+<tr><td>一圈一点</td><td>原稿已说明原抄本“符图8”缺失</td><td>不得以此图替代缺失原图，笔顺与符胆解释待核</td></tr>
+<tr><td>二郎诀</td><td>原稿的指位与其文字说明相符，传承底本未取得</td><td>图文内部一致不等于传承已获核实</td></tr>
+<tr><td>锁形定身符</td><td>未取得可逐笔对照的原图</td><td>保留示意，不能据此确认笔画、字序或符式完整性</td></tr>
+<tr><td>定身咒异文</td><td>原稿把南头六星／南斗六郎校作南斗六星</td><td>校改属编者判断，不再以“原文”掩盖；异文并存记录</td></tr>
+</tbody></table></div>
+<h3>六 · 横向比较：锁蛇与石狗</h3>
+<p>吕养正《湘西“锁蛇”：蕴涵科技元素的黑白巫术晶品》，载<a href="https://skxb.jsu.edu.cn/CN/abstract/abstract859.shtml">《吉首大学学报》2008 年第 29 卷第 5 期，147—149 页</a>。作者将锁蛇放入辰州符及防御、攻击两类巫术的关系中讨论。可比较的研究问题是：同一术法如何因用途不同而改变道德评价；本文不据此推定定狗与锁蛇存在同一师承。</p>
+<p><a href="https://www.zjslib.cn/contents/39/270.html">湛江市图书馆雷州石狗文化资源</a>呈现了另一种犬与地方社会的关系：犬形雕刻进入祠庙与地方文化景观。它可与“需要制服的犬”形成研究对照，提示犬在民俗中不止一种角色；石狗不因此归入定狗术，也不自动证明二者同源。</p>
+<h3>七 · 继续采集时，什么才算一份完整记录</h3>
+<p>一份可复核的图咒诀记录应同时保留：采录地点与日期、讲述者身份及师承自述、抄本封面与页码、原图全幅与局部、咒文原貌与断句、左右手和掌背朝向、动作前后关系、适用场景与禁忌。口传材料应另记方言音读，不能凭普通话近音擅改生僻字。</p>
+<p>同一符式若有不同版本，宜并列展示来源与差异；缺笔不自行补齐，难字可标“字未识”，残句可标“原录缺文”。这能增加材料的丰富度，同时避免把不同师承拼接成一套从未存在过的仪轨。</p>
+</section>
+
+<!-- ================= 陆 结论 ================= -->
+<section id="conclusion">
+  <div class="sec-head"><span class="sec-no">陆</span><h2>研究结论</h2><span class="en">Conclusion</span></div>
+  <ol style="margin:10px 0 10px 24px;color:var(--ink-soft);font-size:15px">
+    <li style="margin:10px 0"><b>定狗术是真实存在的民俗，文献链完整。</b>自唐《禁经》禁狗鼠篇，经宋元符箓三宗、明清民间法教，至近现代乡土草医与江湖术，符、咒、诀三者齐备，且有石门县政府文化档案这样的一手田野记录。</li>
+    <li style="margin:10px 0"><b>「定住」可复现，机制是动物行为学的强直不动（TI）。</b>物理保定（倒置、侧卧按压、盘绕）是唯一经实验证实的诱因；咒语符箓承担的是计时、动作框架与心理叙事功能。</li>
+    <li style="margin:10px 0"><b>四套传承共享同一技术内核：先控制，后叙事。</b>区别只在控制方式（定住/引走）与叙事外衣（道门/法教/草医/江湖）。</li>
+    <li style="margin:10px 0"><b>凡声称「念咒即定」的传播，均可判定为不可靠。</b>检索范围内未发现任何控制条件下的咒语致动证据。</li>
+    <li style="margin:10px 0"><b>现实犬患处置：</b>拴养圈养、统一口令训练、避免散养；被咬后立即以肥皂水冲洗伤口 15 分钟并就医接种狂犬疫苗——黄土符水不能替代暴露后处置。</li>
+  </ol>
+</section>
+
+<!-- ================= 来源 ================= -->
+<footer id="sources">
+  <h6>主 要 资 料 来 源</h6>
+  <ol>
+    <li>孙思邈《千金翼方》卷三十《禁经下·禁狗鼠第十九》（维基文库、国学大师网校录）。</li>
+    <li>《千金翼方·禁经》的方术思想和文化（裘梧，中央民族大学讲座稿）；祝由术与民间法教符法制度考（鼎稔道学馆）。</li>
+    <li>《茅山法术秘传》《正一教》等定身法抄本系统（国学复兴网、中文百科全书等多源互证）。</li>
+    <li>石门县人民政府《灵符巫术》（定狗治狗伤、治狗咬伤诀、杀狗巫术田野记录）。</li>
+    <li>揭秘湘西巫术（新湖南·湖南日报，迷狗咒及其使用群体记录）。</li>
+    <li>符的制作及画符仪式和禁忌（道音文化）；道教符咒大全、符箓结构研究。</li>
+    <li>民间法教「西天佛法」二郎真君定身法传承文本（修行书院公众号）。</li>
+    <li>Reese W G, Newton J E, Angel C. Induced immobility in nervous and normal Pointer dogs. PubMed 7202039（1981）。</li>
+    <li>Ong R M. Tonic Immobility by Dogs. MVSc thesis, Massey University（1993，132 只犬实验）。</li>
+    <li>Vet Help Direct: Hypnosis in animals – what's the evidence?（2024，TI 证据综述）。</li>
+    <li>定蛇术对照实验（宁海新闻网，2014）；定鸡术与强直不动科普（科普中国、澎湃新闻、科技日报）。</li>
+    <li>徐州、杭州、吉林偷狗案件报道（搜狐、长沙社区通等，警方归因记录）。</li>
+  </ol>
+  <div class="disclaimer">
+    <b>免责声明</b>：本报告为历史文化与民俗学研究资料，所录符咒、口诀均为文献与田野记录的客观转录，不代表其真实有效，亦不构成任何行为建议。报告已用现代动物行为学说明相关现象的机制。请勿以任何形式对动物施加不必要的保定或伤害；遭遇犬类伤害请及时就医并按规范处置。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
