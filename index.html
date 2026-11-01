@@ -190,6 +190,22 @@
   figure svg{width:100%;display:block}
   figcaption{color:#655842;text-align:left;padding:10px 4px 0;border-top:1px solid var(--line)}
   @media(max-width:600px){.fig-grid{grid-template-columns:1fr}figcaption{font-size:14px;line-height:1.8}}
+
+  .cards,.spell-grid,.fig-grid,.stat-row{min-width:0}
+  .fig-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fig-grid>*,.spell-grid>*,.cards>*{min-width:0}
+  figure{min-width:0;max-width:100%;overflow-wrap:anywhere}
+  figure>img,figure svg{max-width:100%;height:auto}
+  .plate-window{min-width:0;max-width:100%}
+  .tbl-wrap{min-width:0;max-width:100%}
+  figure img,figure svg{cursor:zoom-in}
+  .image-viewer{width:96vw;max-width:1400px;height:94dvh;max-height:94dvh;margin:auto;padding:48px 12px 12px;border:1px solid var(--line);background:var(--panel)}
+  .image-viewer::backdrop{background:rgba(20,16,12,.8)}
+  .image-viewer button{position:absolute;right:12px;top:8px;padding:6px 16px;font-size:16px;cursor:pointer}
+  .image-viewer .viewer-content{height:100%;overflow:auto;display:flex;align-items:center;justify-content:center}
+  .image-viewer img,.image-viewer svg{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;transform:none}
+  @media(max-width:820px){.fig-grid{grid-template-columns:minmax(0,1fr)}}
+  @media(max-width:600px){.spell-grid,.cards{grid-template-columns:minmax(0,1fr)}.wrap{width:100%}.sec-head{flex-wrap:wrap}.hero .meta{letter-spacing:.04em}figure{padding:12px 8px}figure svg{min-height:0}}
 </style>
 </head>
 <body>
@@ -484,7 +500,7 @@
   <div class="sec-head"><span class="sec-no">肆</span><h2>画符仪轨：按规矩画，而非随手涂</h2><span class="en">Ritual</span></div>
   <p>民间有谚：「<b>画符不知窍，反惹鬼神笑；画符若知窍，惊得鬼神口叫</b>。」所谓「窍」，即符令的结构与仪轨。</p>
 
-  <div class="fig-grid">
+  <figure><img class="professional-plate" style="max-width:500px;margin:auto" src="assets/符箓形态创作示例.png" alt="朱书纵向符箓形态创作示例，非历史原符" loading="lazy"><figcaption><b>符箓形态创作示例</b>：此前生成的朱书图版现补入页面，展示连笔、纵向布局与收笔形态。此图为 AI 辅助创作，没有对应的历史底本，不能当作定身符原样或某派规范符式；下图继续解释结构术语。点击图片可完整放大。</figcaption></figure><div class="fig-grid">
     <figure>
       <svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="符令结构 · 分区阅读图"><rect x="8" y="8" width="704" height="484" rx="12" fill="#fbf6e9" stroke="#d9ccae"/><text x="40" y="52" font-size="23" fill="#7a2318" font-family="serif">符令结构 · 分区阅读图</text><rect x="55" y="85" width="220" height="54" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="80" y="120" font-size="23" fill="#4a4132" font-family="serif">符头</text><path d="M285 112 H335" stroke="#b08d4f" stroke-width="2"/><text x="350" y="119" font-size="19" fill="#4a4132" font-family="serif">起首位置</text><rect x="55" y="152" width="220" height="54" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="80" y="187" font-size="23" fill="#4a4132" font-family="serif">主事神佛</text><path d="M285 179 H335" stroke="#b08d4f" stroke-width="2"/><text x="350" y="186" font-size="19" fill="#4a4132" font-family="serif">神名或主事标识</text><rect x="55" y="219" width="220" height="54" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="80" y="254" font-size="23" fill="#4a4132" font-family="serif">符腹</text><path d="M285 246 H335" stroke="#b08d4f" stroke-width="2"/><text x="350" y="253" font-size="19" fill="#4a4132" font-family="serif">主体内容区域</text><rect x="55" y="286" width="220" height="54" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="80" y="321" font-size="23" fill="#4a4132" font-family="serif">符胆</text><path d="M285 313 H335" stroke="#b08d4f" stroke-width="2"/><text x="350" y="320" font-size="19" fill="#4a4132" font-family="serif">传统解释中的关键部位</text><rect x="55" y="353" width="220" height="54" rx="10" fill="#f1ead9" stroke="#c5b48f"/><text x="80" y="388" font-size="23" fill="#4a4132" font-family="serif">符脚</text><path d="M285 380 H335" stroke="#b08d4f" stroke-width="2"/><text x="350" y="387" font-size="19" fill="#4a4132" font-family="serif">收束位置</text><text x="40" y="468" font-size="17" fill="#4a4132" font-family="serif">分析框架：各传统命名、位置与构成不必完全一致。</text></svg>
       <figcaption><span class="small">【研究示意图，非原件影印】</span> <b>符令五要素</b>：符头、主事神佛、符腹、符胆、符脚。这是结构解释，不能作为各派统一的绘符规范。原图尚未取得，暂保留分析图，不用生成的花纹冒充原符。参见<a href="https://ccaa.cdu.edu.cn/info/1091/3385.htm">文玲《道教符箓结构及心理治愈功能考略》</a>及<a href="https://www.daoisms.com.cn/2010/01/12/22507/">道音文化关于符胆的材料</a>；二者结构位置的表述存在差别，应分别阅读。</figcaption>
@@ -678,5 +694,19 @@
 </footer>
 
 </div>
+<dialog class="image-viewer" aria-label="完整图版查看"><button type="button" aria-label="关闭完整图版">关闭 ×</button><div class="viewer-content"></div></dialog>
+<script>
+const viewer=document.querySelector('.image-viewer');
+const viewerContent=viewer.querySelector('.viewer-content');
+for(const graphic of document.querySelectorAll('figure img,figure svg')){
+  const target=graphic.closest('a')||graphic;
+  target.setAttribute('tabindex','0');
+  const show=(event)=>{event.preventDefault();const copy=graphic.cloneNode(true);copy.removeAttribute('style');copy.removeAttribute('loading');viewerContent.replaceChildren(copy);viewer.showModal();};
+  target.addEventListener('click',show);
+  target.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){show(event);}});
+}
+viewer.querySelector('button').addEventListener('click',()=>viewer.close());
+viewer.addEventListener('click',event=>{if(event.target===viewer)viewer.close();});
+</script>
 </body>
 </html>
